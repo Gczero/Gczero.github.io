@@ -17,3 +17,8 @@ hola:
   label: Hola
   permalink: /hola
   description: Hola tag description
+
+todo:
+  label: todo
+  permalink: /todo
+  description: things planned to be write
