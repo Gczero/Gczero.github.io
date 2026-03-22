@@ -1,0 +1,8 @@
+{
+    "label": "algorithm",
+    "position": 5,
+    "link": {
+        "type": "generated-index",
+        "description": "notes for SJTU algorithm and mit6.006"
+    }
+}

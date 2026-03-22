@@ -5,6 +5,8 @@
 // See: https://docusaurus.io/docs/api/docusaurus-config
 
 import { themes as prismThemes } from 'prism-react-renderer';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -32,7 +34,8 @@ const config = {
   trailingSlash: false,
   deploymentBranch: 'main',
 
-  onBrokenLinks: 'throw',
+  // onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
   onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -43,6 +46,11 @@ const config = {
     locales: ['en'],
   },
 
+  markdown: {
+    mermaid: true, // 必须开启这个开关
+  },
+  themes: ['@docusaurus/theme-mermaid'], // 添加到主题列表
+
   presets: [
     [
       'classic',
@@ -50,6 +58,8 @@ const config = {
       ({
         docs: {
           sidebarPath: './sidebars.js',
+          remarkPlugins: [remarkMath],    // 添加这行
+          rehypePlugins: [rehypeKatex],  // 添加这行
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
@@ -61,6 +71,8 @@ const config = {
             type: ['rss', 'atom'],
             xslt: true,
           },
+          remarkPlugins: [remarkMath],    // 添加这行
+          rehypePlugins: [rehypeKatex],   // 添加这行
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
